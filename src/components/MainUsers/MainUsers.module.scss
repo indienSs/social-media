@@ -1,0 +1,12 @@
+.main_users {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #dce1e6;
+  padding: 30px;
+
+  .users_cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+}
