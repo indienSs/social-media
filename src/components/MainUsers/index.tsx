@@ -10,11 +10,13 @@ const MainUsers: FC = () => {
 
   return (
     <div className={styles.main_users}>
-      <h3>Пользователи:</h3>
-      <div className={styles.users_cards}>
-        {users.map((user) => (
-          <UserCard key={user.id} {...user} />
-        ))}
+      <div>
+        <h3>Пользователи:</h3>
+        <div className={styles.users_cards}>
+          {users.map((user) => (
+            <UserCard key={user.id} {...user} />
+          ))}
+        </div>
       </div>
     </div>
   );

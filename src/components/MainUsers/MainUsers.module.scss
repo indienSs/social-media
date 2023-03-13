@@ -2,11 +2,19 @@
   background: #fff;
   border-radius: 10px;
   border: 1px solid #dce1e6;
-  padding: 30px;
+  padding: 30px 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h3 {
+    margin-bottom: 15px;
+  }
 
   .users_cards {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 15px;
   }
 }

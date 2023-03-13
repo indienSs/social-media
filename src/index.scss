@@ -21,3 +21,23 @@ body {
     padding: 0px 50px;
   }
 }
+
+button {
+  background: #0077ff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+
+  &:active {
+    background-color: darken($color: #0077ff, $amount: 5);
+  }
+}
+
+input,
+button {
+  border-radius: 5px;
+}
+
+a {
+  text-decoration: none;
+}
