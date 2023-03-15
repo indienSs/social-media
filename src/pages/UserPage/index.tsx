@@ -8,17 +8,22 @@ import styles from "./UserPage.module.scss";
 
 const UserPage: FC = () => {
   const { id } = useParams();
-
   const users = useSelector(usersSelector);
-
   const chosenUser = users.find((user) => user.id === id);
 
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const pagesCount: number = Math.ceil(users.length / 3);
-
+  const pagesCount: number = Math.ceil(users.length / 4);
   const pageUsers = users
     .slice(currentPage, currentPage + 4)
     .filter((user) => user.id !== id);
+
+  const [newComment, setNewComment] = useState<string>("");
+  const changeNewComment = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setNewComment(e.target.value);
+  };
+  const submitCommentsForm = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
 
   return (
     <div className={styles.user_page}>
@@ -30,6 +35,7 @@ const UserPage: FC = () => {
           width={350}
           className={styles.profile_photo}
         />
+
         <div className={styles.user_name}>
           <h3>
             {chosenUser?.name} {chosenUser?.secondName}
@@ -52,6 +58,21 @@ const UserPage: FC = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className={styles.user_comments}>
+        <div className={styles.write_comment}>
+          <h3>Написать комментарий</h3>
+          <form onSubmit={submitCommentsForm}>
+            <textarea
+              cols={30}
+              rows={10}
+              value={newComment}
+              onChange={changeNewComment}
+            ></textarea>
+            <button>Отправить комментарий</button>
+          </form>
+        </div>
+        <div>Комментирии ({chosenUser?.comments.length})</div>
       </div>
     </div>
   );
