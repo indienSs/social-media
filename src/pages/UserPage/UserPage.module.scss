@@ -1,5 +1,49 @@
 .user_page {
-  display: flex;
-  margin-top: 40px;
-  gap: 40px;
+  margin-top: 20px;
+
+  overflow: hidden;
+
+  .user_info {
+    display: flex;
+    gap: 40px;
+
+    .profile_photo {
+      border-radius: 10px;
+    }
+
+    .user_name {
+      border-radius: 10px;
+      border: 1px solid #dce1e6;
+      background-color: #fff;
+      width: 100vw;
+      padding-left: 30px;
+
+      h3 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      .another_users {
+        margin-top: 80px;
+
+        .users_cards {
+          margin-top: 30px;
+          display: flex;
+          gap: 15px;
+          overflow: hidden;
+
+          button {
+            height: 70px;
+            margin-top: 80px;
+            width: 35px;
+            font-size: 25px;
+
+            &:disabled {
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+    }
+  }
 }
