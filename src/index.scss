@@ -31,6 +31,10 @@ button {
   &:active {
     background-color: darken($color: #0077ff, $amount: 5);
   }
+
+  &:disabled {
+    opacity: 0.5;
+  }
 }
 
 input,

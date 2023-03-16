@@ -1,13 +1,17 @@
 import { FC, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import UserCard from "../../components/UserCard";
 import { usersSelector } from "../../redux/userReducer/selectors";
+import Comment from "../../components/Comment";
 
 import styles from "./UserPage.module.scss";
+import { setComment } from "../../redux/userReducer/slice";
 
 const UserPage: FC = () => {
   const { id } = useParams();
+  const dispatch = useDispatch();
+
   const users = useSelector(usersSelector);
   const chosenUser = users.find((user) => user.id === id);
 
@@ -23,6 +27,12 @@ const UserPage: FC = () => {
   };
   const submitCommentsForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+  };
+
+  const handleSendComment = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (chosenUser)
+      dispatch(setComment({ id: chosenUser?.id, comment: newComment }));
+    setNewComment("");
   };
 
   return (
@@ -69,10 +79,24 @@ const UserPage: FC = () => {
               value={newComment}
               onChange={changeNewComment}
             ></textarea>
-            <button>Отправить комментарий</button>
+            <button
+              disabled={newComment.length > 80 ? true : false}
+              onClick={handleSendComment}
+            >
+              Отправить комментарий
+            </button>
           </form>
         </div>
-        <div>Комментирии ({chosenUser?.comments.length})</div>
+        <div>
+          <h4 className={styles.comments_counter}>
+            Комментирии ({chosenUser?.comments.length})
+          </h4>
+          <div>
+            {chosenUser?.comments.map((comment, index) => (
+              <Comment key={comment} index={index} text={comment} />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

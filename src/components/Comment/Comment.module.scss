@@ -1,0 +1,14 @@
+.comment {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  width: 940px;
+  min-height: 80px;
+  border: 1px solid #aaa;
+  padding: 10px;
+  margin-bottom: 20px;
+
+  h4 {
+    margin-bottom: 10px;
+  }
+}

@@ -1,1 +1,2 @@
-Social media VReacte, parody. Using redux, axios(mockapi), router-dom etc.
+Отображение юзеров, фейковая соц-сеть, работает с сервером.
+Redux, axios(mockapi), react-router-dom etc.
