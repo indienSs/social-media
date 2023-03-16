@@ -87,11 +87,11 @@ const UserPage: FC = () => {
             </button>
           </form>
         </div>
-        <div>
+        <div className={styles.all_comments}>
           <h4 className={styles.comments_counter}>
             Комментирии ({chosenUser?.comments.length})
           </h4>
-          <div>
+          <div className={styles.comments_list}>
             {chosenUser?.comments.map((comment, index) => (
               <Comment key={comment} index={index} text={comment} />
             ))}

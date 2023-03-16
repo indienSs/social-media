@@ -15,9 +15,14 @@ const MainAddUser: FC = () => {
     comments: [],
   });
 
+  const isReadyToAdd: boolean =
+    userData.name.length > 0 &&
+    userData.secondName.length > 0 &&
+    userData.imgUrl.length > 0 &&
+    userData.title.length > 0;
+
   const onSubmitForm = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    
   };
 
   const onChangeForm = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -60,7 +65,7 @@ const MainAddUser: FC = () => {
           name="title"
           onChange={onChangeForm}
         />
-        <button>Зарегистрировать</button>
+        <button disabled={!isReadyToAdd}>Зарегистрировать</button>
       </form>
     </div>
   );

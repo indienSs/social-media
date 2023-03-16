@@ -10,8 +10,17 @@
     justify-content: space-between;
     padding: 20px 40px;
 
-    .comments_counter {
-      margin-bottom: 20px;
+    .all_comments {
+      padding: 0px 50px;
+      width: 100vw;
+      .comments_counter {
+        margin-bottom: 20px;
+      }
+
+      .comments_list {
+        height: 190px;
+        overflow: auto;
+      }
     }
 
     .write_comment {
@@ -46,6 +55,7 @@
   .user_info {
     display: flex;
     gap: 40px;
+    justify-content: space-between;
 
     .profile_photo {
       border-radius: 10px;
@@ -55,9 +65,9 @@
       border-radius: 10px;
       border: 1px solid #dce1e6;
       background-color: #fff;
-      width: 100vw;
       padding-left: 30px;
       height: 500px;
+      width: 900px;
 
       h3 {
         margin-top: 20px;
