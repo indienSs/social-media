@@ -4,6 +4,9 @@ import axios from "axios";
 import { User } from "../../types/userType";
 
 import styles from "./MainAddUser.module.scss";
+import { apiUrl } from "../../assets/apiUrl";
+import { addUser } from "../../redux/userReducer/slice";
+import { useDispatch } from "react-redux";
 
 const MainAddUser: FC = () => {
   const [userData, setUserData] = useState<User>({
@@ -15,14 +18,25 @@ const MainAddUser: FC = () => {
     comments: [],
   });
 
+  const dispatch = useDispatch();
+
   const isReadyToAdd: boolean =
     userData.name.length > 0 &&
     userData.secondName.length > 0 &&
-    userData.imgUrl.length > 0 &&
     userData.title.length > 0;
 
   const onSubmitForm = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const sendUserToApi = async () => {
+      try {
+        axios.post(apiUrl, userData);
+        console.log("Успешно");
+      } catch (error) {
+        console.log(error);
+        alert("Не удалось зарегистрировать пользовтеля");
+      }
+    };
+    sendUserToApi();
   };
 
   const onChangeForm = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -53,7 +67,7 @@ const MainAddUser: FC = () => {
         />
         <input
           type="text"
-          placeholder="URL фотографии"
+          placeholder="URL-фото(не обязательно)"
           value={userData.imgUrl}
           name="imgUrl"
           onChange={onChangeForm}

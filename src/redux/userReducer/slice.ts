@@ -20,9 +20,12 @@ export const usersSlice = createSlice({
       const user = state.users.find((user) => user.id === action.payload.id);
       user?.comments.push(action.payload.comment);
     },
+    addUser: (state, action: PayloadAction<User>) => {
+      state.users.push(action.payload);
+    },
   },
 });
 
-export const { setUsers, setComment } = usersSlice.actions;
+export const { setUsers, setComment, addUser } = usersSlice.actions;
 
 export default usersSlice.reducer;
