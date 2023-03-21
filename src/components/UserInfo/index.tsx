@@ -13,7 +13,7 @@ interface IUserInfo {
 
 const UserInfo: FC<IUserInfo> = ({ chosenUser, users, id }) => {
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const pagesCount: number = Math.ceil(users.length / 4);
+  const pagesCount: number = Math.floor(users.length / 3);
   const pageUsers = users
     .slice(currentPage, currentPage + 4)
     .filter((user) => user.id !== id);

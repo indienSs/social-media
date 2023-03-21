@@ -30,7 +30,7 @@ const MainAddUser: FC = () => {
     const sendUserToApi = async () => {
       try {
         axios.post(apiUrl, userData);
-        console.log("Успешно");
+        dispatch(addUser(userData));
       } catch (error) {
         console.log(error);
         alert("Не удалось зарегистрировать пользовтеля");

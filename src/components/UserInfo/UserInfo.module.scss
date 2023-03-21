@@ -1,45 +1,45 @@
 .user_info {
-    display: flex;
-    gap: 40px;
-    justify-content: space-between;
+  display: flex;
+  gap: 30px;
 
-    .profile_photo {
-      border-radius: 10px;
+  .profile_photo {
+    border-radius: 10px;
+  }
+
+  .user_name {
+    border-radius: 10px;
+    border: 1px solid #dce1e6;
+    background-color: #fff;
+    padding-left: 30px;
+    height: 500px;
+    width: 1200px;
+    overflow: auto;
+
+    h3 {
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
 
-    .user_name {
-      border-radius: 10px;
-      border: 1px solid #dce1e6;
-      background-color: #fff;
-      padding-left: 30px;
-      height: 500px;
-      width: 900px;
+    .another_users {
+      margin-top: 80px;
 
-      h3 {
-        margin-top: 20px;
-        margin-bottom: 20px;
-      }
+      .users_cards {
+        margin-top: 30px;
+        display: flex;
+        gap: 15px;
+        overflow: hidden;
 
-      .another_users {
-        margin-top: 80px;
+        button {
+          height: 70px;
+          margin-top: 80px;
+          width: 35px;
+          font-size: 25px;
 
-        .users_cards {
-          margin-top: 30px;
-          display: flex;
-          gap: 15px;
-          overflow: hidden;
-
-          button {
-            height: 70px;
-            margin-top: 80px;
-            width: 35px;
-            font-size: 25px;
-
-            &:disabled {
-              opacity: 0.5;
-            }
+          &:disabled {
+            opacity: 0.5;
           }
         }
       }
     }
   }
+}

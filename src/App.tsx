@@ -8,10 +8,12 @@ import { apiUrl } from "./assets/apiUrl";
 import { User } from "./types/userType";
 import axios from "axios";
 import { setUsers } from "./redux/userReducer/slice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { usersSelector } from "./redux/userReducer/selectors";
 
 const App: FC = () => {
   const dispatch = useDispatch();
+  const users = useSelector(usersSelector);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -19,7 +21,7 @@ const App: FC = () => {
       dispatch(setUsers(data));
     };
     fetchUsers();
-  }, []);
+  }, [users]);
 
   return (
     <div className="app">
