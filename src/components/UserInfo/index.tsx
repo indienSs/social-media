@@ -15,9 +15,8 @@ const UserInfo: FC<IUserInfo> = ({ chosenUser, users, id }) => {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const pagesCount: number = Math.floor(users.length / 3);
   const pageUsers = users
-    .slice(currentPage, currentPage + 4)
-    .filter((user) => user.id !== id);
-
+    .filter((user) => user.id !== id)
+    .slice(currentPage * 3, currentPage * 3 + 3);
   return (
     <div className={styles.user_info}>
       <img
@@ -44,7 +43,7 @@ const UserInfo: FC<IUserInfo> = ({ chosenUser, users, id }) => {
               <UserCard key={user.id} {...user} />
             ))}
             <button
-              disabled={currentPage === pagesCount ? true : false}
+              disabled={currentPage === pagesCount - 1 ? true : false}
               onClick={() => setCurrentPage((prev) => prev + 1)}
             >{`>`}</button>
           </div>
