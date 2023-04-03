@@ -2,9 +2,9 @@ import axios from "axios";
 import { FC, useState } from "react";
 import { useDispatch } from "react-redux";
 import { apiUrl } from "../../assets/apiUrl";
-import { setComment } from "../../redux/userReducer/slice";
+import { setComment } from "../../redux/slices/users";
 import { User } from "../../types/userType";
-import Comment from "../Comment";
+import Comment from "../Comment/Comment";
 
 import styles from "./CommentSection.module.scss";
 

@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { User } from "../../types/userType";
-import UserCard from "../UserCard";
+import UserCard from "../UserCard/UserCard";
 import noimage from "../../assets/img/noimage.jpeg";
 
 import styles from "./UserInfo.module.scss";

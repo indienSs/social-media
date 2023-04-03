@@ -1,7 +1,7 @@
 import { FC } from "react";
 
-import MainAddUser from "../../components/MainAddUser";
-import MainUsers from "../../components/MainUsers";
+import MainAddUser from "../../components/MainAddUser/MainAddUser";
+import MainUsers from "../../components/MainUsers/MainUsers";
 
 import styles from "./MainPage.module.scss";
 

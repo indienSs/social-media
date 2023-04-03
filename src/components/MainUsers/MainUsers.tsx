@@ -1,9 +1,9 @@
 import { FC } from "react";
-import { usersSelector } from "../../redux/userReducer/selectors";
+import { usersSelector } from "../../redux/slices/users";
 import { useSelector } from "react-redux";
 
 import styles from "./MainUsers.module.scss";
-import UserCard from "../UserCard";
+import UserCard from "../UserCard/UserCard";
 
 const MainUsers: FC = () => {
   const users = useSelector(usersSelector);

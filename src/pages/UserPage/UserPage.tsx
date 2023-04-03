@@ -1,11 +1,11 @@
 import { FC } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { usersSelector } from "../../redux/userReducer/selectors";
+import { usersSelector } from "../../redux/slices/users";
 
 import styles from "./UserPage.module.scss";
-import CommentSection from "../../components/CommentSection";
-import UserInfo from "../../components/UserInfo";
+import CommentSection from "../../components/CommentSection/CommentSection";
+import UserInfo from "../../components/UserInfo/UserInfo";
 
 const UserPage: FC = () => {
   const { id } = useParams();

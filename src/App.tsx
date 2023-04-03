@@ -1,15 +1,15 @@
 import { FC, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import Header from "./components/Header";
-import MainPage from "./pages/MainPage";
-import UserPage from "./pages/UserPage";
-import NotFound from "./components/NotFound";
+import Header from "./components/Header/Header";
+import MainPage from "./pages/MainPage/MainPage";
+import UserPage from "./pages/UserPage/UserPage";
+import NotFound from "./components/NotFound/NotFound";
 import { apiUrl } from "./assets/apiUrl";
 import { User } from "./types/userType";
 import axios from "axios";
-import { setUsers } from "./redux/userReducer/slice";
+import { setUsers } from "./redux/slices/users";
 import { useDispatch, useSelector } from "react-redux";
-import { usersSelector } from "./redux/userReducer/selectors";
+import { usersSelector } from "./redux/slices/users";
 
 const App: FC = () => {
   const dispatch = useDispatch();

@@ -5,7 +5,7 @@ import { User } from "../../types/userType";
 
 import styles from "./MainAddUser.module.scss";
 import { apiUrl } from "../../assets/apiUrl";
-import { addUser } from "../../redux/userReducer/slice";
+import { addUser } from "../../redux/slices/users";
 import { useDispatch } from "react-redux";
 
 const MainAddUser: FC = () => {

@@ -1,6 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { User } from "../../types/userType";
-import { UsersType } from "./types";
+import { RootState } from "../store";
+
+type UsersType = {
+  users: User[];
+};
 
 const initialState: UsersType = {
   users: [],
@@ -27,5 +31,7 @@ export const usersSlice = createSlice({
 });
 
 export const { setUsers, setComment, addUser } = usersSlice.actions;
+
+export const usersSelector = (store: RootState) => store.users.users;
 
 export default usersSlice.reducer;
