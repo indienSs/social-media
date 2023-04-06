@@ -4,24 +4,15 @@ import Header from "./components/Header/Header";
 import MainPage from "./pages/MainPage/MainPage";
 import UserPage from "./pages/UserPage/UserPage";
 import NotFound from "./components/NotFound/NotFound";
-import { apiUrl } from "./assets/apiUrl";
-import { User } from "./types/userType";
-import axios from "axios";
-import { setUsers } from "./redux/slices/users";
-import { useDispatch, useSelector } from "react-redux";
-import { usersSelector } from "./redux/slices/users";
+import { fetchUsers } from "./redux/slices/users";
+import { useAppDispatch } from "./redux/store";
 
 const App: FC = () => {
-  const dispatch = useDispatch();
-  const users = useSelector(usersSelector);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const fetchUsers = async () => {
-      const { data } = await axios.get<User[]>(apiUrl);
-      dispatch(setUsers(data));
-    };
-    fetchUsers();
-  }, [users]);
+    dispatch(fetchUsers());
+  }, []);
 
   return (
     <div className="app">

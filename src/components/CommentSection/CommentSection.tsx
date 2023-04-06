@@ -1,7 +1,6 @@
-import axios from "axios";
 import { FC, useState } from "react";
 import { useDispatch } from "react-redux";
-import { apiUrl } from "../../assets/apiUrl";
+import axios from "../../assets/axios";
 import { setComment } from "../../redux/slices/users";
 import { User } from "../../types/userType";
 import Comment from "../Comment/Comment";
@@ -11,7 +10,7 @@ import styles from "./CommentSection.module.scss";
 const CommentsSection: FC<User> = (chosenUser) => {
   const [newComment, setNewComment] = useState<string>("");
   const dispatch = useDispatch();
-  const userUrl = `${apiUrl}/${chosenUser.id}`;
+  const userUrl = `/${chosenUser.id}`;
 
   const changeNewComment = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setNewComment(e.target.value);

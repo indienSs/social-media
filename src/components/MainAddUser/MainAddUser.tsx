@@ -1,10 +1,7 @@
 import React, { FC, useState } from "react";
-import axios from "axios";
-
 import { User } from "../../types/userType";
-
 import styles from "./MainAddUser.module.scss";
-import { apiUrl } from "../../assets/apiUrl";
+import axios from "../../assets/axios";
 import { addUser } from "../../redux/slices/users";
 import { useDispatch } from "react-redux";
 
@@ -29,7 +26,7 @@ const MainAddUser: FC = () => {
     event.preventDefault();
     const sendUserToApi = async () => {
       try {
-        axios.post(apiUrl, userData);
+        axios.post("", userData);
         dispatch(addUser(userData));
       } catch (error) {
         console.log(error);

@@ -17,6 +17,7 @@ const UserInfo: FC<IUserInfo> = ({ chosenUser, users, id }) => {
   const pageUsers = users
     .filter((user) => user.id !== id)
     .slice(currentPage * 3, currentPage * 3 + 3);
+
   return (
     <div className={styles.user_info}>
       <img
@@ -26,7 +27,6 @@ const UserInfo: FC<IUserInfo> = ({ chosenUser, users, id }) => {
         width={350}
         className={styles.profile_photo}
       />
-
       <div className={styles.user_name}>
         <h3>
           {chosenUser.name} {chosenUser.secondName}

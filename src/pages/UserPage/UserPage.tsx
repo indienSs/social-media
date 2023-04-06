@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { usersSelector } from "../../redux/slices/users";
+import { statusSelector, usersSelector } from "../../redux/slices/users";
 
 import styles from "./UserPage.module.scss";
 import CommentSection from "../../components/CommentSection/CommentSection";
@@ -9,10 +9,10 @@ import UserInfo from "../../components/UserInfo/UserInfo";
 
 const UserPage: FC = () => {
   const { id } = useParams();
-
   const users = useSelector(usersSelector);
+  const status = useSelector(statusSelector);
 
-  if (!id) {
+  if (!id || status === "error") {
     return <div>Пользователь не найден</div>;
   }
 
